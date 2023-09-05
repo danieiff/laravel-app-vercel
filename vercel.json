@@ -1,29 +1,23 @@
 {
-    "regions": [
-        "hnd1"
-    ],
-    "builds": [
-        {
-            "src": "/api/index.php",
-            "use": "vercel-php@0.6.0"
-        },
-        {
-            "src": "/public/**",
-            "use": "@vercel/static"
+    "version": 2,
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.0"
         }
-    ],
+    },
+    "outputDirectory": "public",
     "routes": [
         {
-            "src": "/build/assets/(.*)",
-            "dest": "/public/build/assets/$1"
+            "src": "/build/(.*)",
+            "dest": "/public/build/"
         },
         {
-            "src": "/favicon.ico",
-            "dest": "/public/favicon.ico"
+            "src": "/resources/(.*)",
+            "dest": "/public/resources/"
         },
         {
-            "src": "/robots.txt",
-            "dest": "/public/robots.txt"
+            "src": "/favicon/(.*)",
+            "dest": "/public/favicon/"
         },
         {
             "src": "/(.*)",
@@ -31,6 +25,7 @@
         }
     ],
     "env": {
+        "APP_ENV": "production",
         "APP_NAME": "Laravel Vercel",
         "APP_DEBUG": "false",
         "APP_CONFIG_CACHE": "/tmp/config.php",
@@ -42,6 +37,8 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
-        "VIEW_COMPILED_PATH": "/tmp"
+        "VIEW_COMPILED_PATH": "/tmp/views",
+        "SSR_TEMP_PATH": "/tmp/ssr",
+        "NODE_PATH": "node"
     }
 }
