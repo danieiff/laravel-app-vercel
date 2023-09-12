@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "@tsconfig/node18/tsconfig.json",
+    "@vue/tsconfig/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "types": [
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "resources/js/*"
+      ]
+    },
+    "isolatedModules": true,
+    "allowJs": true
+  },
+  "exclude": [
+    "node_modules",
+    "public"
+  ]
+}
