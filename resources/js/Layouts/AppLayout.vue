@@ -7,6 +7,9 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import Route from 'ziggy-js'
+import { inject } from 'vue'
+const route = inject('route') as typeof Route
 
 defineProps({
     title: String,
